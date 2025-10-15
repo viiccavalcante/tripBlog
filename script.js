@@ -1,33 +1,35 @@
 // ============================================
-// MOBILE NAVIGATION TOGGLE
+// FULLSCREEN NAVIGATION TOGGLE
 // ============================================
 
 (function() {
     'use strict';
     
     const navToggle = document.querySelector('.nav-toggle');
-    const mainNav = document.querySelector('.main-nav');
+    const fullscreenNav = document.querySelector('.fullscreen-nav');
     
-    if (!navToggle || !mainNav) {
+    if (!navToggle || !fullscreenNav) {
         console.warn('Navigation elements not found');
         return;
     }
     
     /**
-     * Toggles the mobile navigation menu
+     * Toggles the fullscreen navigation menu
      * Updates ARIA attributes for accessibility
      */
     function toggleNavigation() {
-        const isOpen = mainNav.classList.contains('is-open');
+        const isOpen = fullscreenNav.classList.contains('is-open');
         const newState = !isOpen;
         
-        mainNav.classList.toggle('is-open');
+        fullscreenNav.classList.toggle('is-open');
         navToggle.setAttribute('aria-expanded', newState.toString());
         
-        // Trap focus within nav when open, remove trap when closed
+        // Prevent body scroll when nav is open
         if (newState) {
+            document.body.style.overflow = 'hidden';
             trapFocus();
         } else {
+            document.body.style.overflow = '';
             removeFocusTrap();
         }
     }
@@ -39,7 +41,7 @@
     let currentTabHandler = null;
     
     function trapFocus() {
-        const focusableElements = mainNav.querySelectorAll(
+        const focusableElements = fullscreenNav.querySelectorAll(
             'a[href], button:not([disabled])'
         );
         
@@ -48,9 +50,12 @@
         const firstElement = focusableElements[0];
         const lastElement = focusableElements[focusableElements.length - 1];
         
+        // Focus first element when nav opens
+        firstElement.focus();
+        
         // Remove previous handler if it exists
         if (currentTabHandler) {
-            mainNav.removeEventListener('keydown', currentTabHandler);
+            fullscreenNav.removeEventListener('keydown', currentTabHandler);
         }
         
         currentTabHandler = function handleTabKey(e) {
@@ -69,7 +74,7 @@
             }
         };
         
-        mainNav.addEventListener('keydown', currentTabHandler);
+        fullscreenNav.addEventListener('keydown', currentTabHandler);
     }
     
     /**
@@ -77,19 +82,8 @@
      */
     function removeFocusTrap() {
         if (currentTabHandler) {
-            mainNav.removeEventListener('keydown', currentTabHandler);
+            fullscreenNav.removeEventListener('keydown', currentTabHandler);
             currentTabHandler = null;
-        }
-    }
-    
-    /**
-     * Closes navigation when clicking outside
-     */
-    function handleClickOutside(event) {
-        if (!mainNav.contains(event.target) && 
-            !navToggle.contains(event.target) && 
-            mainNav.classList.contains('is-open')) {
-            toggleNavigation();
         }
     }
     
@@ -97,7 +91,7 @@
      * Closes navigation on Escape key press
      */
     function handleEscapeKey(event) {
-        if (event.key === 'Escape' && mainNav.classList.contains('is-open')) {
+        if (event.key === 'Escape' && fullscreenNav.classList.contains('is-open')) {
             toggleNavigation();
             navToggle.focus();
         }
@@ -105,21 +99,52 @@
     
     // Event Listeners
     navToggle.addEventListener('click', toggleNavigation);
-    document.addEventListener('click', handleClickOutside);
     document.addEventListener('keydown', handleEscapeKey);
     
-    // Close nav when window is resized to desktop size
-    let resizeTimer;
-    window.addEventListener('resize', function() {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(function() {
-            if (window.innerWidth > 768 && mainNav.classList.contains('is-open')) {
-                toggleNavigation();
-            }
-        }, 250);
+    console.log('Fullscreen navigation initialized successfully');
+})();
+
+// ============================================
+// HEADER SCROLL EFFECT
+// ============================================
+
+(function() {
+    'use strict';
+    
+    const header = document.querySelector('.site-header');
+    
+    if (!header) return;
+    
+    let lastScrollY = window.scrollY;
+    
+    function updateHeader() {
+        const currentScrollY = window.scrollY;
+        
+        if (currentScrollY > 100) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+        
+        lastScrollY = currentScrollY;
+    }
+    
+    // Use requestAnimationFrame for smooth performance
+    let ticking = false;
+    
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            window.requestAnimationFrame(function() {
+                updateHeader();
+                ticking = false;
+            });
+            
+            ticking = true;
+        }
     });
     
-    console.log('Navigation initialized successfully');
+    // Initial check
+    updateHeader();
 })();
 
 // ============================================
@@ -146,24 +171,100 @@
             if (target) {
                 e.preventDefault();
                 
-                // Close mobile nav if open (reuse the toggle function to ensure cleanup)
-                const mainNav = document.querySelector('.main-nav');
+                // Close fullscreen nav if open (trigger the toggle to ensure cleanup)
+                const fullscreenNav = document.querySelector('.fullscreen-nav');
                 const navToggle = document.querySelector('.nav-toggle');
-                if (mainNav && mainNav.classList.contains('is-open') && navToggle) {
+                if (fullscreenNav && fullscreenNav.classList.contains('is-open') && navToggle) {
                     navToggle.click();
                 }
                 
-                // Smooth scroll to target
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-                
-                // Update focus for accessibility
-                target.focus({ preventScroll: true });
+                // Small delay to allow nav closing animation
+                setTimeout(() => {
+                    // Smooth scroll to target
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    // Update focus for accessibility
+                    target.focus({ preventScroll: true });
+                }, 300);
             }
         });
     });
+})();
+
+// ============================================
+// PARALLAX EFFECT FOR HERO IMAGE
+// ============================================
+
+(function() {
+    'use strict';
+    
+    const heroImage = document.querySelector('.hero-image');
+    
+    if (!heroImage) return;
+    
+    function updateParallax() {
+        const scrollY = window.scrollY;
+        const parallaxSpeed = 0.5;
+        
+        heroImage.style.transform = `translateY(${scrollY * parallaxSpeed}px)`;
+    }
+    
+    // Use requestAnimationFrame for smooth performance
+    let ticking = false;
+    
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            window.requestAnimationFrame(function() {
+                updateParallax();
+                ticking = false;
+            });
+            
+            ticking = true;
+        }
+    });
+})();
+
+// ============================================
+// INTERSECTION OBSERVER FOR VISUAL CARDS
+// ============================================
+
+(function() {
+    'use strict';
+    
+    const visualCards = document.querySelectorAll('.visual-card');
+    
+    if (!visualCards.length) return;
+    
+    // Add initial invisible state
+    visualCards.forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    });
+    
+    const observerOptions = {
+        threshold: 0.2,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                // Stagger the animation slightly
+                setTimeout(() => {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }, index * 100);
+                
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+    
+    visualCards.forEach(card => observer.observe(card));
 })();
 
 // ============================================
@@ -205,4 +306,17 @@
     if (main && !main.id) {
         main.id = 'main';
     }
+})();
+
+// ============================================
+// IMAGE PRELOADER (for better performance)
+// ============================================
+
+(function() {
+    'use strict';
+    
+    // This is a placeholder for when you add actual images
+    // You can preload critical images here for better performance
+    
+    console.log('Visual effects initialized successfully');
 })();
