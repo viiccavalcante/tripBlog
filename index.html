@@ -1,167 +1,288 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A visual journey through the world - explore through images">
-    <title>Nomad Chronicles | Visual Travel Diary</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A visual journey through the world - explore through images"
+    />
+    <title>seen.</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
     <header class="site-header">
-        <div class="header-content">
-            <div class="logo">
-                <h1>NOMAD</h1>
-            </div>
-            <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
-                <span class="nav-toggle-icon"></span>
-            </button>
+      <div class="header-content">
+        <div class="logo">
+          <h1>seen.</h1>
         </div>
+        <button
+          class="nav-toggle"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+        >
+          <span class="nav-toggle-icon"></span>
+        </button>
+      </div>
     </header>
 
     <nav class="fullscreen-nav" aria-label="Main navigation">
-        <ul class="nav-visual-list">
-            <li>
-                <a href="#home" class="nav-visual-item">
-                    <div class="nav-image" data-bg="1"></div>
-                    <span class="nav-label">Home</span>
-                </a>
-            </li>
-            <li>
-                <a href="#gallery" class="nav-visual-item">
-                    <div class="nav-image" data-bg="2"></div>
-                    <span class="nav-label">Gallery</span>
-                </a>
-            </li>
-            <li>
-                <a href="#stories" class="nav-visual-item">
-                    <div class="nav-image" data-bg="3"></div>
-                    <span class="nav-label">Stories</span>
-                </a>
-            </li>
-            <li>
-                <a href="#about" class="nav-visual-item">
-                    <div class="nav-image" data-bg="4"></div>
-                    <span class="nav-label">About</span>
-                </a>
-            </li>
-        </ul>
+      <ul class="nav-visual-list">
+        <li>
+          <a href="#home" class="nav-visual-item">
+            <div class="nav-image" data-bg="1"></div>
+            <span class="nav-label">Home</span>
+          </a>
+        </li>
+        <li>
+          <a href="#gallery" class="nav-visual-item">
+            <div class="nav-image" data-bg="2"></div>
+            <span class="nav-label">Galery</span>
+          </a>
+        </li>
+        <li>
+          <a href="#stories" class="nav-visual-item">
+            <div class="nav-image" data-bg="3"></div>
+            <span class="nav-label">Stories</span>
+          </a>
+        </li>
+        <li>
+          <a href="#about" class="nav-visual-item">
+            <div class="nav-image" data-bg="4"></div>
+            <span class="nav-label">About</span>
+          </a>
+        </li>
+        <li>
+          <a href="#contact" class="nav-visual-item">
+            <div class="nav-image" data-bg="4"></div>
+            <span class="nav-label">Contact</span>
+          </a>
+        </li>
+        <li>
+          <a href="#soon" class="nav-visual-item">
+            <div class="nav-image" data-bg="4"></div>
+            <span class="nav-label">Soon</span>
+          </a>
+        </li>
+      </ul>
     </nav>
 
     <main>
-        <section class="hero-visual" id="home">
-            <div class="hero-image" data-bg="hero"></div>
-            <div class="hero-overlay">
-                <h2 class="hero-title">CHRONICLES</h2>
-                <p class="hero-subtitle">A Visual Journey</p>
+      <section class="hero-visual" id="home">
+        <div class="hero-image" data-bg="hero"></div>
+        <div class="hero-overlay">
+          <h2 class="hero-title">seen.</h2>
+          <p class="hero-subtitle">A Visual Journey</p>
+        </div>
+        <div class="scroll-indicator" aria-hidden="true">
+          <span>↓</span>
+        </div>
+      </section>
+
+      <section class="visual-grid" id="gallery">
+        <article class="visual-card visual-card-wide">
+          <a href="#" class="card-link">
+            <div
+              class="card-image"
+              style="background-image: url('assets/jaipur.jpg')"
+            ></div>
+            <div class="card-overlay">
+              <h3>Jaipur</h3>
+              <p>India</p>
             </div>
-            <div class="scroll-indicator" aria-hidden="true">
-                <span>↓</span>
+          </a>
+        </article>
+
+        <article class="visual-card">
+          <a href="#" class="card-link">
+            <div
+              class="card-image"
+              style="background-image: url('assets/malta.jpeg')"
+            ></div>
+            <div class="card-overlay">
+              <h3>Blue Lagoon</h3>
+              <p>Malta</p>
             </div>
-        </section>
+          </a>
+        </article>
 
-        <section class="visual-grid" id="gallery">
-            <article class="visual-card visual-card-wide">
-                <a href="#" class="card-link">
-                    <div class="card-image" data-bg="5"></div>
-                    <div class="card-overlay">
-                        <h3>Mountain Peaks</h3>
-                        <p>Where earth meets sky</p>
-                    </div>
-                </a>
-            </article>
-
-            <article class="visual-card">
-                <a href="#" class="card-link">
-                    <div class="card-image" data-bg="6"></div>
-                    <div class="card-overlay">
-                        <h3>Urban Nights</h3>
-                        <p>City lights</p>
-                    </div>
-                </a>
-            </article>
-
-            <article class="visual-card">
-                <a href="#" class="card-link">
-                    <div class="card-image" data-bg="7"></div>
-                    <div class="card-overlay">
-                        <h3>Desert Dunes</h3>
-                        <p>Endless horizons</p>
-                    </div>
-                </a>
-            </article>
-
-            <article class="visual-card visual-card-tall">
-                <a href="#" class="card-link">
-                    <div class="card-image" data-bg="8"></div>
-                    <div class="card-overlay">
-                        <h3>Ocean Depths</h3>
-                        <p>Beneath the waves</p>
-                    </div>
-                </a>
-            </article>
-
-            <article class="visual-card">
-                <a href="#" class="card-link">
-                    <div class="card-image" data-bg="9"></div>
-                    <div class="card-overlay">
-                        <h3>Forest Trails</h3>
-                        <p>Into the wild</p>
-                    </div>
-                </a>
-            </article>
-
-            <article class="visual-card visual-card-wide">
-                <a href="#" class="card-link">
-                    <div class="card-image" data-bg="10"></div>
-                    <div class="card-overlay">
-                        <h3>Northern Lights</h3>
-                        <p>Aurora dreams</p>
-                    </div>
-                </a>
-            </article>
-        </section>
-
-        <section class="stories-visual" id="stories">
-            <div class="story-container">
-                <article class="story-item">
-                    <div class="story-image" data-bg="11"></div>
-                    <div class="story-content">
-                        <h3>Latest Journey</h3>
-                        <p>Every destination tells a story. Click to explore the latest adventure from distant lands.</p>
-                    </div>
-                </article>
-
-                <article class="story-item story-reverse">
-                    <div class="story-image" data-bg="12"></div>
-                    <div class="story-content">
-                        <h3>Hidden Gems</h3>
-                        <p>Discover the places less traveled, where authentic experiences await beyond the tourist path.</p>
-                    </div>
-                </article>
+        <article class="visual-card">
+          <a href="#" class="card-link">
+            <div
+              class="card-image"
+              style="background-image: url('assets/bcn.jpeg')"
+            ></div>
+            <div class="card-overlay">
+              <h3>Barcelona</h3>
+              <p>Spain</p>
             </div>
-        </section>
+          </a>
+        </article>
 
-        <section class="about-visual" id="about">
-            <div class="about-image" data-bg="13"></div>
-            <div class="about-content">
-                <h2>Visual Storytelling</h2>
-                <p>Through the lens, we capture moments that words cannot describe. This is a journey told in images.</p>
+        <article class="visual-card visual-card-tall">
+          <a href="#" class="card-link">
+            <div
+              class="card-image"
+              style="background-image: url('assets/marrakesh.jpeg')"
+            ></div>
+            <div class="card-overlay">
+              <h3>Marrakesh</h3>
+              <p>Morocco</p>
             </div>
-        </section>
+          </a>
+        </article>
+
+        <article class="visual-card">
+          <a href="#" class="card-link">
+            <div
+              class="card-image"
+              style="background-image: url('assets/pipa.jpeg')"
+            ></div>
+            <div class="card-overlay">
+              <h3>Pipa</h3>
+              <p>Brazil</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="visual-card visual-card-wide">
+          <a href="#" class="card-link">
+            <div
+              class="card-image"
+              style="background-image: url('assets/valenevado.jpg')"
+            ></div>
+            <div class="card-overlay">
+              <h3>Valle Nevado</h3>
+              <p>Chile</p>
+            </div>
+          </a>
+        </article>
+      </section>
+
+      <section class="stories-visual" id="stories">
+        <div class="story-container">
+          <article class="story-item">
+            <div
+              class="story-image"
+              style="background-image: url('assets/lencois.jpeg')"
+            ></div>
+            <div class="story-content">
+              <h3>Lençóis Maranhenses - Brazil</h3>
+              <p>
+                Where nature paints with sand and water, Lençóis Maranhenses
+                invites you to wander through vast deserts and sparkling
+                lagoons, a paradise untouched by time.
+              </p>
+            </div>
+          </article>
+
+          <article class="story-item story-reverse">
+            <div
+              class="story-image"
+              style="background-image: url('assets/amsterdam.jpeg')"
+            ></div>
+            <div class="story-content">
+              <h3>Amsterdam - Netherlands</h3>
+              <p>
+                Canals, cobblestones, and endless charm by day; buzzing bars,
+                live music, and neon nights – Amsterdam is a city that dances
+                from sunrise to late hours.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="about-visual" id="about">
+        <div
+          class="about-image"
+          style="background-image: url('assets/foz.jpeg')"
+        ></div>
+        <div class="about-content">
+          <h2>Visual Storytelling</h2>
+          <p>
+            A visual diary — an exploration of places, moments, and light. No
+            maps. No words. Just presence.
+          </p>
+          <a href="https:/www.youtube.com" target="_blank">Explore in Motion</a>
+        </div>
+      </section>
+
+      <section class="contact-visual" id="contact">
+        <div class="contact-image" data-bg="13"></div>
+
+        <div class="contact-content-wrapper">
+          <h2>Find Us</h2>
+
+          <div class="contact-cards">
+            <div class="contact-card">
+              <p class="card-label">EMAIL</p>
+              <p class="card-info">us@seen.com</p>
+            </div>
+
+            <div class="contact-card">
+              <p class="card-label">Instagram</p>
+              <a
+                class="card-info"
+                href="https://www.instagram.com"
+                target="_blank"
+                >@seen.com</a
+              >
+            </div>
+
+            <div class="contact-card">
+              <p class="card-label">Youtube</p>
+              <a
+                class="card-info"
+                href="https://www.youtube.com"
+                target="_blank"
+                >/@seen.com</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="soon-visual" id="soon">
+        <div class="soon-image" data-bg="13"></div>
+        <div class="soon-content">
+          <div class="next-trip-content">
+            <h2>soon</h2>
+            <p class="trip-subtitle">Our next adventure begins in:</p>
+
+            <div class="trip-countdown">
+              <div class="countdown-card">
+                <span class="count" id="days">00</span>
+                <span class="label">DAYS</span>
+              </div>
+              <div class="countdown-card">
+                <span class="count" id="hours">00</span>
+                <span class="label">HOURS</span>
+              </div>
+              <div class="countdown-card">
+                <span class="count" id="minutes">00</span>
+                <span class="label">MINUTES</span>
+              </div>
+              <div class="countdown-card">
+                <span class="count" id="seconds">00</span>
+                <span class="label">SECONDS</span>
+              </div>
+            </div>
+            <a href="https:/www.youtube.com" target="_blank">watch us</a>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer class="site-footer">
-        <div class="footer-content">
-            <p>&copy; 2025 Nomad Chronicles</p>
-            <nav aria-label="Footer navigation">
-                <a href="#privacy">Privacy</a>
-                <a href="#terms">Terms</a>
-                <a href="#contact">Contact</a>
-            </nav>
-        </div>
+      <div class="footer-content">
+        <p>&copy; 2025 seen.</p>
+        <nav aria-label="Footer navigation">
+          <a href="https://www.instagram.com" target="_blank">follow</a>
+        </nav>
+      </div>
     </footer>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
