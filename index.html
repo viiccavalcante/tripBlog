@@ -7,6 +7,7 @@
       name="description"
       content="A visual journey through the world - explore through images"
     />
+    <meta name="keywords" content="travel, photography, youtuber, video, videomaker">
     <title>seen.</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
@@ -31,37 +32,61 @@
       <ul class="nav-visual-list">
         <li>
           <a href="#home" class="nav-visual-item">
-            <div class="nav-image" data-bg="1"></div>
+            <div
+              class="nav-image"
+              data-bg="1"
+              aria-label="Home navigation"
+            ></div>
             <span class="nav-label">Home</span>
           </a>
         </li>
         <li>
           <a href="#gallery" class="nav-visual-item">
-            <div class="nav-image" data-bg="2"></div>
+            <div
+              class="nav-image"
+              data-bg="2"
+              aria-label="Galery navigation"
+            ></div>
             <span class="nav-label">Galery</span>
           </a>
         </li>
         <li>
           <a href="#stories" class="nav-visual-item">
-            <div class="nav-image" data-bg="3"></div>
+            <div
+              class="nav-image"
+              data-bg="3"
+              aria-label="Stories navigation"
+            ></div>
             <span class="nav-label">Stories</span>
           </a>
         </li>
         <li>
           <a href="#about" class="nav-visual-item">
-            <div class="nav-image" data-bg="4"></div>
+            <div
+              class="nav-image"
+              data-bg="4"
+              aria-label="About navigation"
+            ></div>
             <span class="nav-label">About</span>
           </a>
         </li>
         <li>
           <a href="#contact" class="nav-visual-item">
-            <div class="nav-image" data-bg="4"></div>
+            <div
+              class="nav-image"
+              data-bg="4"
+              aria-label="Contact navigation"
+            ></div>
             <span class="nav-label">Contact</span>
           </a>
         </li>
         <li>
           <a href="#soon" class="nav-visual-item">
-            <div class="nav-image" data-bg="4"></div>
+            <div
+              class="nav-image"
+              data-bg="4"
+              aria-label="Soon navigation"
+            ></div>
             <span class="nav-label">Soon</span>
           </a>
         </li>
@@ -76,7 +101,7 @@
           <p class="hero-subtitle">A Visual Journey</p>
         </div>
         <div class="scroll-indicator" aria-hidden="true">
-          <span>↓</span>
+          <a href="#gallery" class="hero-cta">Explore <span>↓</span></a>
         </div>
       </section>
 
@@ -85,7 +110,8 @@
           <a href="#" class="card-link">
             <div
               class="card-image"
-              style="background-image: url('assets/jaipur.jpg')"
+              data-img="jaipur.jpg"
+              aria-label="Jaipur Image"
             ></div>
             <div class="card-overlay">
               <h3>Jaipur</h3>
@@ -98,7 +124,8 @@
           <a href="#" class="card-link">
             <div
               class="card-image"
-              style="background-image: url('assets/malta.jpeg')"
+              data-img="malta.jpeg"
+              aria-label="Blue Lagoon Image"
             ></div>
             <div class="card-overlay">
               <h3>Blue Lagoon</h3>
@@ -111,7 +138,8 @@
           <a href="#" class="card-link">
             <div
               class="card-image"
-              style="background-image: url('assets/bcn.jpeg')"
+             data-img="bcn.jpeg"
+              aria-label="Barcelona Image"
             ></div>
             <div class="card-overlay">
               <h3>Barcelona</h3>
@@ -124,7 +152,8 @@
           <a href="#" class="card-link">
             <div
               class="card-image"
-              style="background-image: url('assets/marrakesh.jpeg')"
+              data-img="marrakesh.jpeg"
+              aria-label="Marrakesh Image"
             ></div>
             <div class="card-overlay">
               <h3>Marrakesh</h3>
@@ -137,7 +166,8 @@
           <a href="#" class="card-link">
             <div
               class="card-image"
-              style="background-image: url('assets/pipa.jpeg')"
+              data-img="pipa.jpeg"
+              aria-label="Pipa Image"
             ></div>
             <div class="card-overlay">
               <h3>Pipa</h3>
@@ -150,7 +180,8 @@
           <a href="#" class="card-link">
             <div
               class="card-image"
-              style="background-image: url('assets/valenevado.jpg')"
+              data-img="valenevado.jpg"
+              aria-label="Valle Nevado Image"
             ></div>
             <div class="card-overlay">
               <h3>Valle Nevado</h3>
@@ -165,7 +196,8 @@
           <article class="story-item">
             <div
               class="story-image"
-              style="background-image: url('assets/lencois.jpeg')"
+              data-img="lencois.jpeg"
+              aria-label="Lençóis Maranhenses Image"
             ></div>
             <div class="story-content">
               <h3>Lençóis Maranhenses - Brazil</h3>
@@ -174,13 +206,17 @@
                 invites you to wander through vast deserts and sparkling
                 lagoons, a paradise untouched by time.
               </p>
+              <a href="https:/www.youtube.com" target="_blank" class="watch"
+                >watch us</a
+              >
             </div>
           </article>
 
           <article class="story-item story-reverse">
             <div
               class="story-image"
-              style="background-image: url('assets/amsterdam.jpeg')"
+              data-img="amsterdam.jpeg"
+              aria-label="Amsterdam Image"
             ></div>
             <div class="story-content">
               <h3>Amsterdam - Netherlands</h3>
@@ -189,6 +225,9 @@
                 live music, and neon nights – Amsterdam is a city that dances
                 from sunrise to late hours.
               </p>
+              <a href="https:/www.youtube.com" target="_blank" class="watch"
+                >watch us</a
+              >
             </div>
           </article>
         </div>
@@ -197,7 +236,8 @@
       <section class="about-visual" id="about">
         <div
           class="about-image"
-          style="background-image: url('assets/foz.jpeg')"
+          data-img="foz.jpeg"
+          aria-label="About us"
         ></div>
         <div class="about-content">
           <h2>Visual Storytelling</h2>
@@ -216,12 +256,12 @@
           <h2>Find Us</h2>
 
           <div class="contact-cards">
-            <div class="contact-card">
+            <div class="contact-card" aria-label="Email info">
               <p class="card-label">EMAIL</p>
               <p class="card-info">us@seen.com</p>
             </div>
 
-            <div class="contact-card">
+            <div class="contact-card" aria-label="Instagram info">
               <p class="card-label">Instagram</p>
               <a
                 class="card-info"
@@ -231,7 +271,7 @@
               >
             </div>
 
-            <div class="contact-card">
+            <div class="contact-card" aria-label="Youtube info">
               <p class="card-label">Youtube</p>
               <a
                 class="card-info"
@@ -246,7 +286,7 @@
       <section class="soon-visual" id="soon">
         <div class="soon-image" data-bg="13"></div>
         <div class="soon-content">
-          <div class="next-trip-content">
+          <div class="next-trip-content" aria-label="Countdown for next trip">
             <h2>soon</h2>
             <p class="trip-subtitle">Our next adventure begins in:</p>
 
@@ -268,7 +308,9 @@
                 <span class="label">SECONDS</span>
               </div>
             </div>
-            <a href="https:/www.youtube.com" target="_blank">watch us</a>
+            <a href="https:/www.youtube.com" target="_blank" class="watch"
+              >watch us</a
+            >
           </div>
         </div>
       </section>

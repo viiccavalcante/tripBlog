@@ -260,6 +260,8 @@ a {
   opacity: 0;
   visibility: hidden;
   transition: opacity var(--transition-slow), visibility var(--transition-slow);
+   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .fullscreen-nav.is-open {
@@ -392,7 +394,7 @@ a {
   bottom: var(--space-xl);
   left: 50%;
   transform: translateX(-50%);
-  font-size: var(--font-size-xl);
+  font-size: var(--font-size-base);
   animation: bounce 2s infinite;
 }
 
@@ -672,7 +674,7 @@ a {
 
 .card-label {
   font-size: var(--font-size-sm);
-  color: var(--color-text-secondary);
+  color: var(--color-text-contrast);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   margin-bottom: 0.75rem;
@@ -803,7 +805,7 @@ a {
   text-transform: uppercase;
 }
 
-.soon-content a {
+.watch {
   display: inline-block;
   font-size: var(--font-size-base);
   color: var(--color-text-primary);
@@ -816,8 +818,8 @@ a {
   transition: all 0.3s ease;
 }
 
-.soon-content a:hover,
-.soon-content a:focus-visible {
+.watch:hover,
+.watch:focus-visible {
   color: var(--color-accent);
   border-color: var(--color-accent);
   background: rgba(255, 255, 255, 0.1);
