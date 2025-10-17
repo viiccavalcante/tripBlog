@@ -325,7 +325,7 @@
 // ============================================
 
 (function () {
-  const countdownDate = new Date("2025-12-01T00:00:00").getTime();
+  const countdownDate = new Date("2025-10-29T00:00:00").getTime();
 
   function updateCountdown() {
     const now = new Date().getTime();
