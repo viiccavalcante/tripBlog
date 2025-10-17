@@ -365,11 +365,11 @@
     
     function updateImages() {
         const isMobile = window.innerWidth < 768;
-        const folder = isMobile ? 'assets/mobile' : 'assets/desktop';
+        const folder = isMobile ? 'mobile' : 'desktop';
 
         document.querySelectorAll('[data-img]').forEach(el => {
             const imgName = el.dataset.img;
-            el.style.backgroundImage = `url('${folder}/${imgName}')`;
+            el.style.backgroundImage = `url('/assets/${folder}/${imgName}')`;
         });
     }
 
