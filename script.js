@@ -360,20 +360,23 @@
 // ============================================
 // CHANGE IMG SIZES ACCORDING TO SCREEN
 // ============================================
-(function() {
-    'use strict';
-    
-    function updateImages() {
-        const isMobile = window.innerWidth < 768;
-        const folder = isMobile ? 'mobile' : 'desktop';
+(function () {
+  "use strict";
 
-        document.querySelectorAll('[data-img]').forEach(el => {
-            const imgName = el.dataset.img;
-            el.style.backgroundImage = `url('/assets/${folder}/${imgName}')`;
-        });
-    }
+  function updateImages() {
+    const isMobile = window.innerWidth < 768;
+    const folder = isMobile ? "mobile" : "desktop";
 
-    updateImages();
+    const pathParts = window.location.pathname.split("/");
+    const basePath = "/" + pathParts[1];
 
-    window.addEventListener('resize', updateImages);
+    document.querySelectorAll("[data-img]").forEach((el) => {
+      const imgName = el.dataset.img;
+      el.style.backgroundImage = `url('${basePath}/assets/${folder}/${imgName}')`;
+    });
+  }
+
+  updateImages();
+
+  window.addEventListener("resize", updateImages);
 })();
